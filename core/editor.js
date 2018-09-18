@@ -1270,8 +1270,8 @@
 		/**
 		 * Moves the selection focus to the editing area space in the editor.
 		 */
-		focus: function() {
-			this.fire( 'beforeFocus' );
+		focus: function( focusOption ) {
+			this.fire( 'beforeFocus', { focusOption: focusOption } );
 		},
 
 		/**
