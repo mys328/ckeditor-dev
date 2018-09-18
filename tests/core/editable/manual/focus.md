@@ -1,4 +1,4 @@
-@bender-tags: 4.10.2, bug, 478
+@bender-tags: 4.11.0, feature, 2420
 @bender-ui: collapsed
 @bender-ckeditor-plugins: wysiwygarea
 
