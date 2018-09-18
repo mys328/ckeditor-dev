@@ -1,5 +1,4 @@
 /* bender-tags: editor */
-
 function logFn( msg ) {
 	return function() {
 		window.console && console.log( msg ); // jshint ignore:line
@@ -80,5 +79,15 @@ bender.test( {
 				}, 210 );
 			} );
 		} );
+	},
+
+	// #2420
+	'test editor.focus preventScroll flag is passed to editable.focus': function() {
+		var editor = this.editor,
+			editable = editor.editable(),
+			spy = sinon.spy( editable, 'focus' );
+
+		editor.focus( { preventScroll: true } );
+		assert.isTrue( spy.args[ 0 ][ 0 ].preventScroll );
 	}
 } );
