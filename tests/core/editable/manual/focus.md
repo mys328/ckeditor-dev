@@ -2,12 +2,8 @@
 @bender-ui: collapsed
 @bender-ckeditor-plugins: wysiwygarea
 
-Use buttons to focus each editors.
+Use buttons to focus editors, blur editor before focusing again with next button.
 
 ## Expected
 
-Page doesn't scroll.
-
-## Unexpected
-
-Page scrolls to the editor.
+Button should do exactly what it says.

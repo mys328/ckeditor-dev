@@ -1,6 +1,8 @@
 <div class="buttons">
-	<button data-editor-name="inline" style="font-size:20px">Focus inline</button>
-	<button data-editor-name="classic" style="font-size:20px">Focus classic</button>
+	<button data-editor-name="inline" style="font-size:20px">Focus inline with scroll</button>
+	<button data-editor-name="inline" data-prevent-scroll="true" style="font-size:20px">Focus inline without scroll</button>
+	<button data-editor-name="classic" style="font-size:20px">Focus classic with scroll</button>
+	<button data-editor-name="classic" data-prevent-scroll="true" style="font-size:20px">Focus classic without scroll</button>
 </div>
 
 <div style="height:100vh"></div>
@@ -15,11 +17,12 @@
 	CKEDITOR.replace( 'classic' );
 
 	buttons.on( 'click', function( evt ) {
-		var editorName = evt.data.getTarget().getAttribute( 'data-editor-name' ),
-			editor = CKEDITOR.instances[ editorName ];
+		var target = evt.data.getTarget(),
+			editor = CKEDITOR.instances[ target.getAttribute( 'data-editor-name' ) ],
+			preventScroll = target.getAttribute( 'data-prevent-scroll' );
 
 		if ( editor ) {
-			editor.editable().focus();
+			editor.editable().focus( { preventScroll: preventScroll } );
 		}
 	} );
 </script>
